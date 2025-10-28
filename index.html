@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temas de Interés • Sitio Básico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Sitio básico de temas de interés para práctica de despliegue en la nube.">
+</head>
+<body>
+  <div class="background"></div>
+  <div class="app-container">
+    <header class="header" role="banner">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="Logo del sitio Temas de Interés" class="logo">
+        <div class="title">
+          <h1>Temas de Interés</h1>
+          <p class="subtitle">Tecnología · Ciencia · Libros · Ciberseguridad</p>
+        </div>
+      </div>
+      <nav aria-label="Principal">
+        <ul class="nav">
+          <li><a href="#tecnologia">Tecnología</a></li>
+          <li><a href="#ciencia">Ciencia</a></li>
+          <li><a href="#libros">Libros</a></li>
+          <li><a href="#ciberseguridad">Ciberseguridad</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content" role="main">
+      <section class="hero">
+        <div class="hero-text">
+          <h2>Explora y aprende a tu ritmo</h2>
+          <p>Este es un sitio sencillo para practicar despliegue en la nube (Render/Railway). Está construido con HTML, CSS y JavaScript puro.</p>
+          <a class="button" href="https://www.youtube.com/watch?v=I0NUN3MYlQU" target="_blank" rel="noopener">Ver un video en YouTube</a>
+        </div>
+      </section>
+
+      <section class="cards">
+        <article id="tecnologia" class="card">
+          <h3>💻 Tecnología</h3>
+          <p>Notas cortas sobre herramientas, frameworks y buenas prácticas de desarrollo.</p>
+          <button class="chip" data-topic="tecnologia">Ver más</button>
+        </article>
+        <article id="ciencia" class="card">
+          <h3>🔬 Ciencia</h3>
+          <p>Curiosidades y descubrimientos que empujan los límites del conocimiento.</p>
+          <button class="chip" data-topic="ciencia">Ver más</button>
+        </article>
+        <article id="libros" class="card">
+          <h3>📚 Libros</h3>
+          <p>Reseñas rápidas de lecturas recomendadas y recursos abiertos.</p>
+          <button class="chip" data-topic="libros">Ver más</button>
+        </article>
+        <article id="ciberseguridad" class="card">
+          <h3>🛡️ Ciberseguridad</h3>
+          <p>Buenas prácticas para proteger aplicaciones y datos en producción.</p>
+          <button class="chip" data-topic="ciberseguridad">Ver más</button>
+        </article>
+      </section>
+
+      <section class="more" aria-live="polite" id="dynamic-section" hidden>
+        <h3 id="dynamic-title"></h3>
+        <p id="dynamic-text"></p>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <p><strong>Curso:</strong> <span class="editable">Conceptualización de servicios en la nube</span></p>
+      <p><strong>Alumno:</strong> <span class="editable">Esdras Omar Mota Velez</span> · <strong>Código:</strong> <span class="editable">223983486</span></p>
+      <p><strong>Contacto:</strong> <a href="mailto:tucorreo@ejemplo.com" class="editable">emota03@hotmail.com</a></p>
+      <p class="tiny">© 2025 Sitio de práctica · Hecho con HTML, CSS y JS</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
