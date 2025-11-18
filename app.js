@@ -1,6 +1,5 @@
-// Cambia esta URL a tu backend (Render o local)
+// URL de tu backend en Render (sin la barra final)
 const API_BASE = "https://server-escuela.onrender.com";
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("resource-form");
@@ -24,10 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function extractYouTubeId(url) {
     try {
       const u = new URL(url);
-      if (
-        u.hostname.includes("youtube.com") &&
-        u.searchParams.get("v")
-      ) {
+      if (u.hostname.includes("youtube.com") && u.searchParams.get("v")) {
         return u.searchParams.get("v");
       }
       if (u.hostname.includes("youtu.be")) {
@@ -114,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function fetchResources() {
     try {
       list.innerHTML = "<p>Cargando recursos...</p>";
-      const res = await fetch(`${API_BASE_URL}/api/resources`);
+      const res = await fetch(`${API_BASE}/api/resources`);
       if (!res.ok) {
         throw new Error("No se pudieron obtener los recursos");
       }
@@ -148,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       showStatus("Guardando recurso...", false);
 
-      const res = await fetch(`${API_BASE_URL}/api/resources`, {
+      const res = await fetch(`${API_BASE}/api/resources`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -203,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/resources/${id}`, {
+      const res = await fetch(`${API_BASE}/api/resources/${id}`, {
         method: "DELETE"
       });
 
