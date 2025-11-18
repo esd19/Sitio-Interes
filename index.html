@@ -1,56 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Usuarios</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="topbar">
-    <div class="wrap">
-      <h1>👤 Usuarios</h1>
-      <p class="subtitle">Listado, alta, edición y eliminación (fetch)</p>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <section class="card">
-      <h2>Agregar usuario</h2>
-      <form id="createForm" class="row">
-        <input id="nameInput" type="text" placeholder="Nombre" autocomplete="off" />
-        <button type="submit" class="btn primary">Agregar</button>
-      </form>
-    </section>
-
-    <section class="card">
-      <div class="list-head">
-        <h2>Lista de usuarios</h2>
-        <button id="reloadBtn" class="btn ghost" title="Recargar">↻</button>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mi Biblioteca Multimedia en la Nube</title>
+    <meta
+      name="description"
+      content="Aplicación web para guardar enlaces a videos, playlists y documentos alojados en la nube."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <h1 class="site-title">Mi Biblioteca Multimedia en la Nube</h1>
+        <p class="site-subtitle">
+          Guarda enlaces a YouTube, Google Drive, Spotify, Dropbox y más.
+        </p>
       </div>
+    </header>
 
-      <div id="emptyState" class="empty hidden">
-        <p>No hay usuarios aún. ¡Agrega el primero! 🙌</p>
-      </div>
+    <main class="container">
+      <section class="intro">
+        <h2>¿Qué hace esta aplicación?</h2>
+        <p>
+          Esta aplicación te permite registrar enlaces a distintos recursos
+          digitales almacenados en la nube: videos, playlists, documentos,
+          presentaciones y más.
+        </p>
+        <p>
+          Toda la información se guarda en una base de datos y se muestra en una
+          interfaz dinámica y responsiva.
+        </p>
+      </section>
 
-      <div class="table-wrap">
-        <table class="table" id="usersTable" aria-label="Usuarios">
-          <thead>
-            <tr>
-              <th style="width: 80px;">ID</th>
-              <th>Nombre</th>
-              <th style="width: 220px;">Acciones</th>
-            </tr>
-          </thead>
-          <tbody id="usersTbody">
-            <!-- filas dinámicas -->
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
+      <section class="form-section">
+        <h2>Agregar nuevo recurso</h2>
+        <form id="resource-form" class="resource-form" novalidate>
+          <div class="field-group">
+            <label for="title">Título del recurso *</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              required
+              placeholder="Ej. Tutorial Node.js desde cero"
+            />
+          </div>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js"></script>
-</body>
+          <div class="field-group">
+            <label for="description">Descripción</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="3"
+              placeholder="Notas o comentarios sobre el recurso"
+            ></textarea>
+          </div>
+
+          <div class="field-group">
+            <label for="url">URL del recurso *</label>
+            <input
+              type="url"
+              id="url"
+              name="url"
+              required
+              placeholder="https://www.youtube.com/watch?v=..."
+            />
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label for="type">Tipo de recurso</label>
+              <select id="type" name="type">
+                <option value="Video">Video</option>
+                <option value="Artículo">Artículo</option>
+                <option value="Playlist">Playlist</option>
+                <option value="Documento">Documento</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="platform">Plataforma</label>
+              <select id="platform" name="platform">
+                <option value="YouTube">YouTube</option>
+                <option value="Google Drive">Google Drive</option>
+                <option value="Spotify">Spotify</option>
+                <option value="Dropbox">Dropbox</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary">
+            Guardar recurso
+          </button>
+        </form>
+
+        <p id="status-message" class="status-message"></p>
+      </section>
+
+      <section class="list-section">
+        <h2>Mis recursos guardados</h2>
+        <div id="resource-list" class="resource-grid">
+          <!-- Las tarjetas se cargan por JS -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Aplicación desarrollada para la actividad de despliegue en la nube.
+      </p>
+      <p>
+        Incluye uso de base de datos, interfaz responsiva y enlaces a medios
+        digitales en la nube.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
 </html>
